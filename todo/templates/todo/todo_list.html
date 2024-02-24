@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <h1>ToDo List</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="content" placeholder="Add new todo..." />
+      <button type="submit">Add</button>
+    </form>
+    <ul>
+      {% for todo_item in todo_items %}
+      <li>{{ todo_item.content }} - {{ todo_item.created_at }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
